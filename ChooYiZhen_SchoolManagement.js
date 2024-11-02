@@ -24,11 +24,26 @@ const students = [
 
 // List of lecturers teaching in the school
 const lecturers = [
-    { stuffID: 9, name: 'Pluto', subjectsTaught: 'Math' },
-    { stuffID: 10, name: 'Ludwig Von Drake', subjectsTaught: 'Geography' },
-    { stuffID: 11, name: 'Daisy Duck', subjectsTaught: 'English' },
-    { stuffID: 12, name: 'Scrooge McDuck', subjectsTaught: 'Chemistry' },
-    { stuffID: 13, name: 'Dewey', subjectsTaught: 'Physics' }
+    { stuffID: 9, 
+        name: 'Pluto', 
+        subjectsTaught: 'Math' 
+    },
+    { stuffID: 10, 
+        name: 'Ludwig Von Drake', 
+        subjectsTaught: 'Geography' 
+    },
+    { stuffID: 11, 
+        name: 'Daisy Duck', 
+        subjectsTaught: 'English' 
+    },
+    { stuffID: 12, 
+        name: 'Scrooge McDuck', 
+        subjectsTaught: 'Chemistry' 
+    },
+    { stuffID: 13, 
+        name: 'Dewey', 
+        subjectsTaught: 'Physics' 
+    }
 ];
 
 // List of subjects and registered students
@@ -62,7 +77,6 @@ const subjectClass = [
         subName: 'Physics', 
         registeredStudents: [],
         registerLecturer:""
-
      }
 ];
 
@@ -84,10 +98,16 @@ module.exports = {
         });
 
     },
+    registerLecturer(){
+        lecturers.forEach(lecturer =>{
+            const lecturerEntry = subjectClass.find(s => s.subName === lecturer.subjectsTaught);
+            if(!lecturerEntry.registerLecturer.includes(lecturer.name));
+            console.log(lecturer.name);
+        })
+    },
     registerAllStudents() {
         students.forEach(student => {
             student.subjects.forEach(subject => {
-                // Find the corresponding subject class
                 const subjectClassEntry = subjectClass.find(s => s.subName === subject);
     
                 if (subjectClassEntry) {
@@ -105,6 +125,4 @@ module.exports = {
         });
     
 }
-
-    // Check if the student is already registered for this sub
 };
