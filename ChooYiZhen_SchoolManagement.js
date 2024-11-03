@@ -104,15 +104,15 @@ module.exports = {
             // RESET STUDENTS LIST 
             students.length=0;
             //REPLACE THE NEW STUDENT LIST INTO THE OLD CLEARED ONES
-            students.push(updateStudentList);
+            students.push(...updateStudentList);    //SPREAD OPERATOR USED TO PUSH EACH OBJECT INTO THE ARRAY IF NOT IT WILL RETURN UNDEFINED.
             console.log(`Student with student ID ${studnet.studentID} has been expelled.`);
             console.log('--------------------------------------------------------------')
-            students.forEach(students => {
-                console.log(`Students: ${updateStudentList.length}`);
+            students.forEach(student => {
+                console.log(`Student: ${student.name}, ID: ${student.studentID}`);
             });    
         }
         else{
-
+            console.log(`student with ${studnet.studentID} cannot be found.`)
         }
         
     },
@@ -126,7 +126,9 @@ module.exports = {
             
         })
     },
-    
+    stirfrySotongLecturer(lecturer){
+
+    },
     registerAllStudents() {
         students.forEach(student => {
             student.subjects.forEach(subject => {
