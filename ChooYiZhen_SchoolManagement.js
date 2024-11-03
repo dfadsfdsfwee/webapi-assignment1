@@ -86,7 +86,6 @@ module.exports = {
     addStudent(newStudents){
         const existingStudent = students.find(s => s.studentID === newStudents.studentID);
         if (!existingStudent) {
-            // If the student does not exist, add the new student to the array
             students.push(newStudents);
             console.log(`Student ${newStudents.name} has been successfully added.`);
         } else {
@@ -98,13 +97,36 @@ module.exports = {
         });
 
     },
+    expelStudent(studnet){       
+        const studentIDEntry =students.find(s => s.studentID===studnet.studentID);  //
+        if(studentIDEntry){
+            const updateStudentList= students.filter(s => s.studentID!==studnet.studentID);
+            // RESET STUDENTS LIST 
+            students.length=0;
+            //REPLACE THE NEW STUDENT LIST INTO THE OLD CLEARED ONES
+            students.push(updateStudentList);
+            console.log(`Student with student ID ${studnet.studentID} has been expelled.`);
+            console.log('--------------------------------------------------------------')
+            students.forEach(students => {
+                console.log(`Students: ${updateStudentList.length}`);
+            });    
+        }
+        else{
+
+        }
+        
+    },
     registerLecturer(){
         lecturers.forEach(lecturer =>{
             const lecturerEntry = subjectClass.find(s => s.subName === lecturer.subjectsTaught);
-            if(!lecturerEntry.registerLecturer.includes(lecturer.name));
-            console.log(lecturer.name);
+            if(!lecturerEntry.registerLecturer.includes(lecturer.name)){
+                lecturerEntry.registerLecturer =lecturer.name;
+                console.log(`Assign Lecturer: ${lecturer.name} to class the ${lecturerEntry.subName} class.`);
+            }
+            
         })
     },
+    
     registerAllStudents() {
         students.forEach(student => {
             student.subjects.forEach(subject => {
@@ -118,7 +140,6 @@ module.exports = {
             });
         });
     
-        // Output the result for verification
         subjectClass.forEach(subject => {
             console.log(`Subject: ${subject.subName}`);
             console.log(`Registered Students: ${subject.registeredStudents.join(", ")}`);
