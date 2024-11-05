@@ -41,7 +41,7 @@ const lecturers = [
         subjectsTaught: 'Chemistry' 
     },
     { stuffID: 13, 
-        name: 'Dewey', 
+        name: 'Dewey Duck', 
         subjectsTaught: 'Physics' 
     }
 ];
@@ -97,7 +97,7 @@ module.exports = {
         });
 
     },
-    expelStudent(studnet){       
+    goBackKamgpongStudent(studnet){       
         const studentIDEntry =students.find(s => s.studentID===studnet.studentID);  //
         if(studentIDEntry){
             const updateStudentList= students.filter(s => s.studentID!==studnet.studentID);
@@ -127,7 +127,10 @@ module.exports = {
         })
     },
     stirfrySotongLecturer(lecturer){
-
+        const LecturerEntry = lecturers.find(s =>s.stuffID=== lecturer.stuffID);
+        if (lecturerEntry){
+            const updateLecturerList = lecturer.filter(s => s.stuffID === lecturer.stuffID);
+        }
     },
     registerAllStudents() {
         students.forEach(student => {
