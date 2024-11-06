@@ -84,35 +84,36 @@ const subjectClass = [
 //THE FUNCTIONS
 module.exports = {
     addStudent(newStudents){
-        const existingStudent = students.find(s => s.studentID === newStudents.studentID);
-        if (!existingStudent) {
-            students.push(newStudents);
-            console.log(`Student ${newStudents.name} has been successfully added.`);
+        const existingStudent = students.find(s => s.studentID === newStudents.studentID);      // THE VARIBALE EXISTING STUDENT WILL ONLY EXIST IF THE STUDENT'S ID ALREADY EXIST.
+        if (!existingStudent) { // IF THE STUDENT EXIST 
+            students.push(newStudents); // THEN, PUSH THE STUDENT JSON OBJECT
+            console.log(`Student ${newStudents.name} has been successfully added.`);    // OUTPUT MESSAGE 
         } else {
-            console.log(`Student with ID ${newStudents.studentID} already exists.`);
+            console.log(`Student with ID ${newStudents.studentID} already exists.`);    // ELSE STUDENT ID ALREADY EXIST
         }
 
         students.forEach(students => {
-            console.log(`Registered Students: ${students.name}`);
+            console.log(`Registered Students: ${students.name}`);   // DISPLAY ALL THE STUDENT IN THE SCHOOL
         });
 
     },
     goBackKamgpongStudent(studnet){       
-        const studentIDEntry =students.find(s => s.studentID===studnet.studentID);  //
-        if(studentIDEntry){
-            const updateStudentList= students.filter(s => s.studentID!==studnet.studentID);
-            // RESET STUDENTS LIST 
-            students.length=0;
+        const studentIDEntry =students.find(s => s.studentID===studnet.studentID);  
+        //THE VARIABLE STUDENTIDENTRY WILL CONSTAIN THE JSON OBJECT OF THE STUDENTS'S ARRAY. AND IT WILL COMPARE AND FIND
+        // THE JSON OBJECT KEY THAT CONTAINS THE SAME STUDENT ID
+        if(studentIDEntry){ // IF STUDENT ENTRY IS NOT NULL
+            const updateStudentList= students.filter(s => s.studentID!==studnet.studentID); // FILTER IS REMOVING VIA THE STRING CONTENT
+            students.length=0;  // RESET STUDENTS LIST 
             //REPLACE THE NEW STUDENT LIST INTO THE OLD CLEARED ONES
             students.push(...updateStudentList);    //SPREAD OPERATOR USED TO PUSH EACH OBJECT INTO THE ARRAY IF NOT IT WILL RETURN UNDEFINED.
             console.log(`Student with student ID ${studnet.studentID} has been expelled.`);
             console.log('--------------------------------------------------------------')
             students.forEach(student => {
-                console.log(`Student: ${student.name}, ID: ${student.studentID}`);
+                console.log(`Student: ${student.name}, ID: ${student.studentID}`);      // THIS FOR EACH LOOP WILL OUTPUT ALL THE STUDENT LIST REMAINING 
             });    
         }
         else{
-            console.log(`student with ${studnet.studentID} cannot be found.`)
+            console.log(`student with ${studnet.studentID} cannot be found.`)   // IF STUDENT ID IS NOT FOUND 
         }
         
     },
