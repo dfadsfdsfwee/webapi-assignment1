@@ -1,4 +1,4 @@
-// List of students in the school
+
 const students = [
     {   
         studentID: 1,
@@ -22,7 +22,6 @@ const students = [
     }
 ];
 
-// List of lecturers teaching in the school
 const lecturers = [
     { stuffID: 9, 
         name: 'Pluto', 
@@ -46,7 +45,7 @@ const lecturers = [
     }
 ];
 
-// List of subjects and registered students
+
 const subjectClass = [
     { 
         subjectID: "A", 
