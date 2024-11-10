@@ -96,16 +96,16 @@ module.exports = {
         });
 
     },
-    goBackKamgpongStudent(studnet){       
-        const studentIDEntry =students.find(s => s.studentID===studnet.studentID);  
+    goBackKamgpongStudent(student){       
+        const studentIDEntry =students.find(s => s.studentID===student.studentID);  
         //THE VARIABLE STUDENTIDENTRY WILL CONSTAIN THE JSON OBJECT OF THE STUDENTS'S ARRAY. AND IT WILL COMPARE AND FIND
         // THE JSON OBJECT KEY THAT CONTAINS THE SAME STUDENT ID
         if(studentIDEntry){ // IF STUDENT ENTRY IS NOT NULL
-            const updateStudentList= students.filter(s => s.studentID!==studnet.studentID); // FILTER IS REMOVING VIA THE STRING CONTENT
+            const updateStudentList= students.filter(s => s.studentID!==student.studentID); // FILTER IS REMOVING VIA THE STRING CONTENT
             students.length=0;  // RESET STUDENTS LIST 
             //REPLACE THE NEW STUDENT LIST INTO THE OLD CLEARED ONES
             students.push(...updateStudentList);    //SPREAD OPERATOR USED TO PUSH EACH OBJECT INTO THE ARRAY IF NOT IT WILL RETURN UNDEFINED.
-            console.log(`Student with student ID ${studnet.studentID} has been expelled.`);
+            console.log(`Student with student ID ${student.studentID} has been expelled.`);
             console.log('--------------------------------------------------------------')
             students.forEach(student => {
                 console.log(`Student: ${student.name}, ID: ${student.studentID}`);      // THIS FOR EACH LOOP WILL OUTPUT ALL THE STUDENT LIST REMAINING 
@@ -156,5 +156,24 @@ module.exports = {
         });
     
 },
+subjectNameChange(oldsubjectName, newSubjectName){
+    students.forEach(student =>{
+        // LOOP THE STUDENT JSON OBJECT AND CHECK IF THE OLD ON IS CORRECTLY FOUND
+        if(student.subjects.includes(oldsubjectName)){  // USE INCLUDE AS CONTAINS 
+            student.subjects = student.subjects.map(s => s === oldsubjectName?newSubjectName:s) // IF MATCH THEN USE THE NEWSUBJECT NAME ELSE USE S WHICH CONTAINS THE OLD STRING
+            /*(method) Array<string>.map<U>(callbackfn: (value: string, index: number, array: string[]) => U, thisArg?: any): U[]
+                Calls a defined callback function on each element of an array, and returns an array that contains the results.
+                @param callbackfn — A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+                @param thisArg — An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. */
+        }
+    });
+    
+    lecturers.forEach(lecturers =>{
+        if(lecturers.subjectsTaught === oldsubjectName?newSubjectName:oldsubjectName);  // LOOP THE ARRAY AND THEN IF THE JSON  OBJECT MATCHES THEN CHANGE ELSE : REMAIN THE SAME
+    });
 
+    subjectClass.forEach(subject=>{
+        if(subjectClass.subName === oldsubjectName?newSubjectName:oldsubjectName);
+    });
+}
 };

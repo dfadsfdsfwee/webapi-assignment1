@@ -1,4 +1,4 @@
-const SchoolModule = require('./ChooYiZhen_SchoolManagement');
+const schoolModule = require('./ChooYiZhen_SchoolManagement');
 // SchoolModule.registerLecturer();
 // const newStudent = {
 //     studentID: 5,
@@ -12,11 +12,24 @@ const SchoolModule = require('./ChooYiZhen_SchoolManagement');
 
 // console.log(newStudent);
 
-const student =    {   
-    studentID: 1,
-    name: "Mickey Mouse",
-    subjects: ['Math', 'Geography', 'English']
+
+// Sample student data to test adding a new student
+const newStudent = {
+    studentID: 5,
+    name: "Clarabelle Cow",
+    subjects: ['Math', 'History', 'English']
 };
 
-SchoolModule.expelStudent(student);
+// Test the addStudent function
+console.log("\n--- Testing addStudent Function ---");
+schoolModule.addStudent(newStudent);
+
+// Test the changeSubjectNameForAllStudents function
+console.log("\n--- Testing changeSubjectNameForAllStudents Function ---");
+schoolModule.subjectNameChange('Math', 'Advanced Math');
+
+// Test the goBackKamgpongStudent function
+console.log("\n--- Testing goBackKamgpongStudent Function ---");
+const studentToRemove = { studentID: 3 }; // Replace with an ID that exists
+schoolModule.goBackKamgpongStudent(studentToRemove);
 

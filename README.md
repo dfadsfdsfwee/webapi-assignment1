@@ -11,4 +11,5 @@ For some tips in formatting text in readme file, refer to https://docs.github.co
 # References
 Provide the references that you have used to support your assignment. 
 
-
+// CODE 140 -156 I ASK CHAT GPT TO CODE SOME OF IT 
+// I LEARN FILTER, AND => FROM CHATGPT
