@@ -140,20 +140,21 @@ module.exports = {
     registerAllStudents() {
         students.forEach(student => {   // LOOP THE STUDENT ARRAY
             student.subjects.forEach(subject => {// for each sutdent loop the subjects
-                const subjectClassEntry = subjectClass.find(s => s.subName === subject); //     
+                const subjectClassEntry = subjectClass.find(s => s.subName === subject); //     IF THE SUBJECT IN THE STUDENT ARRAY MATCHES HTE SUBJECT CLASS'S SUBJECT THE VARIABLE WILL BE TRUE
     
-                if (subjectClassEntry) {
-                    if (!subjectClassEntry.registeredStudents.includes(student.name)) {
-                        subjectClassEntry.registeredStudents.push(student.name); 
+                if (subjectClassEntry) {    // IF MATCH IS FOUNF
+                    if (!subjectClassEntry.registeredStudents.includes(student.name)) { // CHECK IF THE NAME OF THE STUDENT ALREAY EXIST AND IF NOT
+                        subjectClassEntry.registeredStudents.push(student.name); // ADD THE STUDENT NAME 
                     }
                 }
             });
         });
     
         subjectClass.forEach(subject => {
-            console.log(`Subject: ${subject.subName}`);
-            console.log(`Registered Students: ${subject.registeredStudents.join(", ")}`);
+            console.log(`Subject: ${subject.subName}`); // JUST OUTPUT ALL THE SUBJECT 
+            console.log(`Registered Students: ${subject.registeredStudents.join(", ")}`); //STATE WHICH STUDENT IS AT WHERE
         });
     
-}
+},
+
 };
