@@ -118,24 +118,29 @@ module.exports = {
     },
     registerLecturer(){
         lecturers.forEach(lecturer =>{
-            const lecturerEntry = subjectClass.find(s => s.subName === lecturer.subjectsTaught);
-            if(!lecturerEntry.registerLecturer.includes(lecturer.name)){
-                lecturerEntry.registerLecturer =lecturer.name;
-                console.log(`Assign Lecturer: ${lecturer.name} to class the ${lecturerEntry.subName} class.`);
+            const lecturerEntry = subjectClass.find(s => s.subName === lecturer.subjectsTaught);    
+            // FIND LECTURER'S SUBJECTSTAUGHT MATCHES ANY LECTURER IN THE SUBJECTCALSS'S SUBJECT NAME
+            if(!lecturerEntry.registerLecturer.includes(lecturer.name)){    // IF FOUND
+                lecturerEntry.registerLecturer =lecturer.name; // ADD LECTURER'S NAME INTO THE SUBJECT CLASS
+                console.log(`Assign Lecturer: ${lecturer.name} to class the ${lecturerEntry.subName} class.`);  // OUTPUT MESSAGE
             }
             
         })
     },
     stirfrySotongLecturer(lecturer){
-        const LecturerEntry = lecturers.find(s =>s.stuffID=== lecturer.stuffID);
-        if (lecturerEntry){
-            const updateLecturerList = lecturer.filter(s => s.stuffID === lecturer.stuffID);
+        const LecturerEntry = lecturers.find(s =>s.stuffID=== lecturer.stuffID);    //FIND LECTURER BASED ON STUFF ID
+        if (LecturerEntry){ //IF FOUND
+            const updateLecturerList = lecturer.filter(s => s.stuffID === lecturer.stuffID);    // REMOVE BY FILTERING
+            console.log(`Remove Lecturer: ${lecturer.name}.`)   // MESSAGE
+        }
+        else{
+            console.log(`Lecturer not found.`)
         }
     },
     registerAllStudents() {
-        students.forEach(student => {
-            student.subjects.forEach(subject => {
-                const subjectClassEntry = subjectClass.find(s => s.subName === subject);
+        students.forEach(student => {   // LOOP THE STUDENT ARRAY
+            student.subjects.forEach(subject => {// for each sutdent loop the subjects
+                const subjectClassEntry = subjectClass.find(s => s.subName === subject); //     
     
                 if (subjectClassEntry) {
                     if (!subjectClassEntry.registeredStudents.includes(student.name)) {
