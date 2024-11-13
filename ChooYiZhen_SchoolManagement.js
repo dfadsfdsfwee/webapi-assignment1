@@ -169,7 +169,7 @@ subjectNameChange(oldsubjectName, newSubjectName){
     });
     
     lecturers.forEach(lecturers =>{
-        if(lecturers.subjectsTaught === oldsubjectName?newSubjectName:oldsubjectName);  // LOOP THE ARRAY AND THEN IF THE JSON  OBJECT MATCHES THEN CHANGE ELSE : REMAIN THE SAME
+        if(lecturers.subjectsTaught === oldsubjectName?newSubjectName:oldsubjectName);  // LOOP THE ARRAY AND THEN IF THE JSON  OBJECT MATCHES THEN CHANGE ELSE : REMAIN THE
     });
 
     subjectClass.forEach(subject=>{
